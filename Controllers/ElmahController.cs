@@ -21,7 +21,9 @@ namespace Web.Areas.Admin.Controllers
             if (!string.IsNullOrEmpty(_resouceType))
             {
                 var pathInfo = "." + _resouceType;
-                HttpContext.Current.RewritePath(HttpContext.Current.Request.Path, pathInfo, HttpContext.Current.Request.QueryString.ToString());
+                HttpContext.Current.RewritePath(_resouceType != "stylesheet"
+                        ? HttpContext.Current.Request.Path.Replace(String.Format("/{0}", _resouceType), string.Empty)
+                        : HttpContext.Current.Request.Path, pathInfo, HttpContext.Current.Request.QueryString.ToString());
             }
 
             var handler = factory.GetHandler(HttpContext.Current, null, null, null);
