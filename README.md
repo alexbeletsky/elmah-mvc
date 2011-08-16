@@ -11,11 +11,12 @@ Test application
 1. In VS2010 New -> Project -> ASP.NET MVC3 Application
 2. Install Elmah by NuGet, in package console - Install-Package elmah
 3. Add Admin area for application
-4. Create new route to Elmah.
-5. Run application and go to /admin/elmah
+4. Add ElmahController.cs to Area/Elmah/Controllers folder.
+5. Create new route to Elmah (see Areas/Admin/AdminAreaRegistration.cs)
+6. Run application and go to /admin/elmah
 
 Code for re-use
 ===============
 
-[Controller](https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/Controllers/ElmahController.cs)
-[Routing[(https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/AdminAreaRegistration.cs)
+[Controller](https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/Controllers/ElmahController.cs),
+[Routing] (https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/AdminAreaRegistration.cs)
