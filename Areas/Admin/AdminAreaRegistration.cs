@@ -10,6 +10,12 @@ namespace ElmahMvc.Areas.Admin {
 
         public override void RegisterArea(AreaRegistrationContext context) {
             context.MapRoute(
+                "Admin_elmah_download",
+                "Admin/elmah/download",
+                new { action = "Index", controller = "ElmahDownload" }
+            );
+            
+            context.MapRoute(
                 "Admin_elmah",
                 "Admin/elmah/{type}",
                 new { action = "Index", controller = "Elmah", type = UrlParameter.Optional }
