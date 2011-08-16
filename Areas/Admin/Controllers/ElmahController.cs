@@ -18,28 +18,25 @@ namespace ElmahMvc.Areas.Admin.Controllers
         public override void ExecuteResult(ControllerContext context)
         {
             var factory = new Elmah.ErrorLogPageFactory();
-            if (!string.IsNullOrEmpty(_resouceType))
-            {
+
+            if (!string.IsNullOrEmpty(_resouceType)) {
                 var pathInfo = "." + _resouceType;
-                HttpContext.Current.RewritePath(_resouceType != "stylesheet"
-                        ? HttpContext.Current.Request.Path.Replace(String.Format("/{0}", _resouceType), string.Empty)
-                        : HttpContext.Current.Request.Path, pathInfo, HttpContext.Current.Request.QueryString.ToString());
+                HttpContext.Current.RewritePath(PathForStylesheet(), pathInfo, HttpContext.Current.Request.QueryString.ToString());
             }
 
-            var handler = factory.GetHandler(HttpContext.Current, null, null, null);
+            var httpHandler = factory.GetHandler(HttpContext.Current, null, null, null);
+            httpHandler.ProcessRequest(HttpContext.Current);
+        }
 
-            handler.ProcessRequest(HttpContext.Current);
+        private string PathForStylesheet() 
+        {
+            return _resouceType != "stylesheet" ? HttpContext.Current.Request.Path.Replace(String.Format("/{0}", _resouceType), string.Empty) : HttpContext.Current.Request.Path;
         }
     }
 
     public class ElmahController : Controller
     {
         public ActionResult Index(string type)
-        {
-            return new ElmahResult(type);
-        }
-
-        public ActionResult Detail(string type)
         {
             return new ElmahResult(type);
         }

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmahMvc", "ElmahMvc.csproj", "{FEBCE3B8-5928-4E2F-9C1F-7EA0F5192BAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEBCE3B8-5928-4E2F-9C1F-7EA0F5192BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBCE3B8-5928-4E2F-9C1F-7EA0F5192BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBCE3B8-5928-4E2F-9C1F-7EA0F5192BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBCE3B8-5928-4E2F-9C1F-7EA0F5192BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
