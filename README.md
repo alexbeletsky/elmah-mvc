@@ -13,3 +13,9 @@ Test application
 3. Add Admin area for application
 4. Create new route to Elmah.
 5. Run application and go to /admin/elmah
+
+Code for re-use
+===============
+
+[Controller](https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/Controllers/ElmahController.cs)
+[Routing[(https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/AdminAreaRegistration.cs)
