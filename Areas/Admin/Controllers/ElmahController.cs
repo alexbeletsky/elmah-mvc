@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Web.Areas.Admin.Controllers
+namespace ElmahMvc.Areas.Admin.Controllers
 {
     class ElmahResult : ActionResult
     {
