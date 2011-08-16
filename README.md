@@ -17,5 +17,5 @@ Test application
 Code for re-use
 ===============
 
-[Controller](https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/Controllers/ElmahController.cs)
-[Routing[(https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/AdminAreaRegistration.cs)
+[Controller](https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/Controllers/ElmahController.cs),
+[Routing] (https://github.com/alexanderbeletsky/elmah.mvc.controller/blob/master/Areas/Admin/AdminAreaRegistration.cs)
