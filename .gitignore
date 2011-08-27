@@ -27,6 +27,7 @@ _ReSharper*
 *.Cache
 *.StyleCop
 
+App_Data/*
 TestResult.xml
 submit.xml
 src/tests/*
@@ -34,4 +35,5 @@ tests/*
 doc/*
 SolutionVersion.cs
 gems/lib/**/*
+ElmahMvc.suo
 ElmahMvc.suo
