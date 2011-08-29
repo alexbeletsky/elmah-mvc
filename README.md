@@ -1,7 +1,7 @@
 ELMAH MVC Controller
 ====================
 
-For headache less integration of ELMAH into ASP.NET MVC application. For detailed instructions, please check link below.
+For painless integration of ELMAH into ASP.NET MVC application. For detailed instructions, please check link below.
 
 See, [http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
 
@@ -20,28 +20,15 @@ How to use in my application?
 
 Easy. Install ELMAH by NuGet, in package console
 
-	Install-Package elmah
+	Install-Package Elmah.MVC
 
-It is optional (but preferable) to create new Area called Admin. Inside AreaRegistration.cs your should place routing for ELMAH controller:
+Source code and contribution
+============================
 
-    context.MapRoute(
-        "Admin_elmah",
-        "Admin/elmah/{type}",
-        new { action = "Index", controller = "ELMAH", type = UrlParameter.Optional }
-    );
+You are very welcome to change and improve the code. Please note that once src/Areas/Admin/Controllers/ElmahController.cs is changed, corresponding nuget/content/Areas/Admin/Controllers/ElmahController.cs.pp have to be changed as well.
 
-Copy Areas/Admin/Controller/ElmahController.cs and place to yours Areas/Admin/Controller folder, add file to project. Don't forget to change the namespace according to your project.
+Recent changes
+==============
 
-Configure ELMAH logging options (Memory, XML, SQL), use Web.Config of this project as example. Run application, and see that:
-
-	/admin/elmah
-
-works. 
-
-Optional (but very preferable) is to secure your controller with Authorize attribute:
-
-	[Authorize(Users = "Admin")]
-	public class ElmahController : Controller
-	{
-
-That's it.
+29-Aug-2011 - nuget package created
+29-Aug-2011 - reimplemented controller to avoid usage of additional routing instructions
