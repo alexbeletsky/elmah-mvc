@@ -1,6 +1,7 @@
 build_output/*
 code_drop/*
 
+*.suo
 **/*.suo
 **/**/*.suo
 **/*.user
