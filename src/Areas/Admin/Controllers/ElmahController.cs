@@ -5,8 +5,44 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ElmahMvc.Areas.Admin.Controllers {
+    //[Authorize(Roles = "Admin")]
+    public class ElmahController : Controller {
+        public ActionResult Index() {
+            return new ElmahResult();
+        }
+
+        public ActionResult Stylesheet() {
+            return new ElmahResult("stylesheet");
+        }
+
+        public ActionResult Rss() {
+            return new ElmahResult("rss");
+        }
+
+        public ActionResult DigestRss() {
+            return new ElmahResult("digestrss");
+        }
+
+        public ActionResult About() {
+            return new ElmahResult("about");
+        }
+
+        public ActionResult Detail() {
+            return new ElmahResult("detail");
+        }
+
+        public ActionResult Download() {
+            return new ElmahResult("download");
+        }
+    }
+
     internal class ElmahResult : ActionResult {
         private string _resouceType;
+
+        public ElmahResult()
+            : this(null) {
+
+        }
 
         public ElmahResult(string resouceType) {
             _resouceType = resouceType;
@@ -38,15 +74,8 @@ namespace ElmahMvc.Areas.Admin.Controllers {
         }
 
         private string FilePath(ControllerContext context) {
-            return _resouceType != "stylesheet" ? 
+            return _resouceType != "stylesheet" ?
                 context.HttpContext.Request.Path.Replace(String.Format("/{0}", _resouceType), string.Empty) : context.HttpContext.Request.Path;
-        }
-    }
-
-    //[Authorize(Roles = "Admin")]
-    public class ElmahController : Controller {
-        public ActionResult Index(string type) {
-            return new ElmahResult(type);
         }
     }
 }
