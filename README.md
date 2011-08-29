@@ -6,7 +6,7 @@ For painless integration of ELMAH into ASP.NET MVC application. For detailed ins
 See, [http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
 
 Test application
-================
+----------------
 
 1. In VS2010 New -> Project -> ASP.NET MVC3 Application
 2. Install ELMAH by NuGet, in package console - Install-Package elmah
@@ -16,7 +16,7 @@ Test application
 6. Run application and go to /admin/elmah
 
 How to use in my application?
-=============================
+-----------------------------
 
 Easy. Install ELMAH by NuGet, in package console
 
@@ -30,5 +30,5 @@ You are very welcome to change and improve the code. Please note that once src/A
 Recent changes
 ==============
 
-29-Aug-2011 - nuget package created
-29-Aug-2011 - reimplemented controller to avoid usage of additional routing instructions
+* 29-Aug-2011 - nuget package created
+* 29-Aug-2011 - reimplemented controller to avoid usage of additional routing instructions
