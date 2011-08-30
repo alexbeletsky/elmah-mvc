@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -37,7 +35,7 @@ namespace ElmahMvc.Areas.Admin.Controllers {
     }
 
     internal class ElmahResult : ActionResult {
-        private string _resouceType;
+        private readonly string _resouceType;
 
         public ElmahResult()
             : this(null) {
@@ -61,7 +59,7 @@ namespace ElmahMvc.Areas.Admin.Controllers {
             var httpHandler = factory.GetHandler(currentContext, null, null, null);
             if (httpHandler is IHttpAsyncHandler) {
                 var asyncHttpHandler = (IHttpAsyncHandler)httpHandler;
-                asyncHttpHandler.BeginProcessRequest(currentContext, (r) => { }, null);
+                asyncHttpHandler.BeginProcessRequest(currentContext, r => { }, null);
             }
             else {
                 httpHandler.ProcessRequest(currentContext);
