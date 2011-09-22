@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace $rootnamespace$.Areas.Admin.Controllers {
-    //[Authorize(Roles = "Admin")]
+     //[Authorize(Roles = "Admin")]
     public class ElmahController : Controller {
         public ActionResult Index() {
             return new ElmahResult();
@@ -32,6 +32,14 @@ namespace $rootnamespace$.Areas.Admin.Controllers {
         public ActionResult Download() {
             return new ElmahResult("download");
         }
+
+        public ActionResult Json() {
+            return new ElmahResult("json");
+        }
+
+        public ActionResult Xml() {
+            return new ElmahResult("xml");
+        }
     }
 
     internal class ElmahResult : ActionResult {
@@ -57,13 +65,14 @@ namespace $rootnamespace$.Areas.Admin.Controllers {
             var currentContext = GetCurrentContext(context);
 
             var httpHandler = factory.GetHandler(currentContext, null, null, null);
-            if (httpHandler is IHttpAsyncHandler) {
-                var asyncHttpHandler = (IHttpAsyncHandler)httpHandler;
-                asyncHttpHandler.BeginProcessRequest(currentContext, r => { }, null);
+            var httpAsyncHandler = httpHandler as IHttpAsyncHandler;
+
+            if (httpAsyncHandler != null) {
+                httpAsyncHandler.BeginProcessRequest(currentContext, r => { }, null);
+                return;
             }
-            else {
-                httpHandler.ProcessRequest(currentContext);
-            }
+
+            httpHandler.ProcessRequest(currentContext);
         }
 
         private static HttpContext GetCurrentContext(ControllerContext context) {
