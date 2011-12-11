@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ElmahMvc.Areas.Admin.Controllers {
+
     //[Authorize(Roles = "Admin")]
     public class ElmahController : Controller {
         public ActionResult Index() {
