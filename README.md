@@ -3,7 +3,7 @@ ELMAH MVC Controller
 
 For painless integration of ELMAH into ASP.NET MVC application. For detailed instructions, please check link below.
 
-See, [http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
+See, [http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html).
 
 What's the benefit?
 -------------------
@@ -16,7 +16,7 @@ By doing that, you can apply any authorization strategies or routes. In short, n
 
 	http://yourapp/elmah.axd
 	
-That could be used for [ASP.NET session hijacking with Google and ELMAH][http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html].
+That could be used for [ASP.NET session hijacking with Google and ELMAH](http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html).
 
 How to use in my application?
 --------------------------------
