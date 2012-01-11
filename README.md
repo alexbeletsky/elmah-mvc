@@ -5,7 +5,7 @@ For painless integration of ELMAH into ASP.NET MVC application. For detailed ins
 
 See, [http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
 
-Whats the benifit?
+What's the benefit?
 -------------------
 
 With ELMAH.MVC you got nice and clear MVC style routing to ELMAH error page. By default, it is being installed into Admin area, so ELMAH can be accessed by:
@@ -28,7 +28,7 @@ Easy. Install ELMAH by NuGet, in package console
 How to got rid of default ELMAH handlers?
 ---------------------------------------------
 
-Unfortunatelly, NuGet package could not remove existing AXD handlers, so you have to do it manually. Just open web.config and remove such sections:
+Unfortunately, NuGet package could not remove existing AXD handlers, so you have to do it manually. Just open web.config and remove such sections:
 
 	<httpHandlers>
       <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
