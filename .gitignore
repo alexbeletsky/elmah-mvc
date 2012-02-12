@@ -27,6 +27,7 @@ _ReSharper*
 *.log
 *.Cache
 *.StyleCop
+*crunch*
 
 */App_Data/*
 TestResult.xml
