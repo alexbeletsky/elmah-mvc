@@ -79,7 +79,7 @@ namespace $rootnamespace$.Areas.Admin.Controllers
                                                 context.HttpContext.Request.QueryString.ToString());
             }
 
-            var currentContext = GetCurrentContext(context);
+            var currentContext = GetCurrentContextAsHttpContext(context);
 
             var httpHandler = factory.GetHandler(currentContext, null, null, null);
             var httpAsyncHandler = httpHandler as IHttpAsyncHandler;
@@ -93,15 +93,9 @@ namespace $rootnamespace$.Areas.Admin.Controllers
             httpHandler.ProcessRequest(currentContext);
         }
 
-        private static HttpContext GetCurrentContext(ControllerContext context)
+        private static HttpContext GetCurrentContextAsHttpContext(ControllerContext context)
         {
-            var currentApplication = (HttpApplication) context.HttpContext.GetService(typeof (HttpApplication));
-            if (currentApplication == null)
-            {
-                throw new NullReferenceException("currentApplication");
-            }
-
-            return currentApplication.Context;
+            return context.HttpContext.ApplicationInstance.Context;
         }
 
         private string FilePath(ControllerContext context)
