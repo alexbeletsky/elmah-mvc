@@ -15,6 +15,11 @@ namespace Elmah.Mvc.Web.Controllers
             return View();
         }
 
+        public ActionResult Bad()
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult About()
         {
             return View();

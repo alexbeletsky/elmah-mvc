@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D2DF6E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Elmah.Mvc.Web.Vb", "Elmah.Mvc.Web.Vb\Elmah.Mvc.Web.Vb.vbproj", "{45A0A286-3620-492F-A313-FB77C6AAB28A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{263AE7E3-32C4-40A4-BFEC-C62867DD1038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{263AE7E3-32C4-40A4-BFEC-C62867DD1038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{263AE7E3-32C4-40A4-BFEC-C62867DD1038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A0A286-3620-492F-A313-FB77C6AAB28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A0A286-3620-492F-A313-FB77C6AAB28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A0A286-3620-492F-A313-FB77C6AAB28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A0A286-3620-492F-A313-FB77C6AAB28A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
