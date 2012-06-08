@@ -1,5 +1,6 @@
 build_output/*
 code_drop/*
+**/packages
 
 *.suo
 **/*.suo
