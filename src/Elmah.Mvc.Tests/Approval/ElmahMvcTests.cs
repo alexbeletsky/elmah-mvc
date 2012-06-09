@@ -8,7 +8,7 @@ namespace Elmah.Mvc.Tests.Approval
     [UseReporter(typeof(DiffReporter))]
     public class ElmahMvcTests
     {
-        private const string ElmahMvcAppUrl = "http://localhost:49800/admin/elmah";
+        private const string ElmahMvcAppUrl = "http://localhost:49800/elmah";
 
         [Test]
         public void lock_elmah_mvc_pages()
