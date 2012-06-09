@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
 using ApprovalTests.Reporters;
 using NUnit.Framework;
 
@@ -7,86 +8,32 @@ namespace Elmah.Mvc.Tests.Approval
     [UseReporter(typeof(DiffReporter))]
     public class ElmahMvcTests
     {
-        private readonly string ElmahMvcAppUrl = "http://localhost:49800";
+        private const string ElmahMvcAppUrl = "http://localhost:49800/admin/elmah";
 
         [Test]
-        public void should_open_elmah_page(string path)
+        public void lock_elmah_mvc_pages()
         {
             // do
-            var url = ElmahMvcAppUrl + path;
+            var content = new StringBuilder();            
+            var pages = new[] 
+                            {
+                                ElmahMvcAppUrl,
+                                ElmahMvcAppUrl + "/",
+                                ElmahMvcAppUrl + "/stylesheet",
+                                ElmahMvcAppUrl + "/rss",
+                                ElmahMvcAppUrl + "/digestrss",
+                                ElmahMvcAppUrl + "/detail?id=5dd2a560-c6fd-4847-a6cc-e3e253db5764",
+                                ElmahMvcAppUrl + "/json?id=5dd2a560-c6fd-4847-a6cc-e3e253db5764",
+                                ElmahMvcAppUrl + "/xml?id=5dd2a560-c6fd-4847-a6cc-e3e253db5764"
+                            };
+
+            foreach (var page in pages)
+            {
+                content.Append(GetContent(page));
+            }
 
             // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
-        }
-
-        [Test]
-        public void should_open_stylesheets()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/stylesheet";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));            
-        }
-
-        [Test]
-        public void should_open_rss()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/rss";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));            
-        }
-
-        [Test]
-        public void should_open_digest_rss()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/digestrss";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
-        }
-
-        [Test]
-        public void should_open_details()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/detail?id=d5b2db50-0d5b-4c1d-a4dc-30324081191a";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
-        }
-
-        [Test]
-        public void should_open_not_found_page()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/detail";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
-        }
-
-        [Test]
-        public void should_open_json_page()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/json?id=d6c13c5b-f57f-41e0-b23d-6de2dfa5bba7";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
-        }
-
-        [Test]
-        public void should_open_xml_page()
-        {
-            // do
-            var url = ElmahMvcAppUrl + "/admin/elmah/xml?id=d6c13c5b-f57f-41e0-b23d-6de2dfa5bba7";
-
-            // verify
-            ApprovalTests.Approvals.VerifyHtml(GetContent(url));
+            ApprovalTests.Approvals.VerifyHtml(content.ToString());
         }
 
         private string GetContent(string url)
@@ -96,7 +43,8 @@ namespace Elmah.Mvc.Tests.Approval
 
         private string HackServertTime(string content)
         {
-            return new Regex("Server time is \\d+:\\d+:\\d+").Replace(content, string.Empty);
+            var pattern = "<p id=\"Footer\">(.*)</p>";
+            return new Regex(pattern).Replace(content, string.Empty);
         }
     }
 }

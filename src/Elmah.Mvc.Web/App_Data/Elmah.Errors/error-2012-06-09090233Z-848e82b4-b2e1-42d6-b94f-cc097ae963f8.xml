@@ -1,10 +1,10 @@
-﻿<error errorId="4cb32a93-cb99-4517-9627-625fb2f74dc0" application="/" host="SEEKEY-NOTE" type="Elmah.ApplicationException" message="Missing error identifier specification." source="Elmah" detail="Elmah.ApplicationException: Missing error identifier specification.&#xD;&#xA;   at Elmah.ErrorJsonHandler.ProcessRequest(HttpContext context)&#xD;&#xA;   at Elmah.Mvc.Web.Areas.Admin.Controllers.ElmahResult.ExecuteResult(ControllerContext context) in D:\Development\Projects\elmah.mvc.controller\src\Elmah.Mvc.Web\Areas\Admin\Controllers\ElmahController.cs:line 93&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.&lt;&gt;c__DisplayClass1c.&lt;InvokeActionResultWithFilters&gt;b__19()&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.&lt;&gt;c__DisplayClass1c.&lt;&gt;c__DisplayClass1e.&lt;InvokeActionResultWithFilters&gt;b__1b()&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)&#xD;&#xA;   at System.Web.Mvc.Controller.ExecuteCore()&#xD;&#xA;   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)&#xD;&#xA;   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;&gt;c__DisplayClass6.&lt;&gt;c__DisplayClassb.&lt;BeginProcessRequest&gt;b__5()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.&lt;&gt;c__DisplayClass1.&lt;MakeVoidDelegate&gt;b__0()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.&lt;&gt;c__DisplayClass8`1.&lt;BeginSynchronous&gt;b__7(IAsyncResult _)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;&gt;c__DisplayClasse.&lt;EndProcessRequest&gt;b__d()&#xD;&#xA;   at System.Web.Mvc.SecurityUtil.&lt;GetCallInAppTrustThunk&gt;b__0(Action f)&#xD;&#xA;   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2012-06-08T15:36:36.2971901Z">
+﻿<error errorId="848e82b4-b2e1-42d6-b94f-cc097ae963f8" application="/" host="SEEKEY-NOTE" type="System.Web.HttpException" message="Error with ID 'd6c13c5b-f57f-41e0-b23d-6de2dfa5bba7' not found." source="Elmah" detail="System.Web.HttpException (0x80004005): Error with ID 'd6c13c5b-f57f-41e0-b23d-6de2dfa5bba7' not found.&#xD;&#xA;   at Elmah.ErrorXmlHandler.ProcessRequest(HttpContext context)&#xD;&#xA;   at Elmah.Mvc.Web.Areas.Admin.Controllers.ElmahResult.ExecuteResult(ControllerContext context) in D:\Development\Projects\elmah.mvc.controller\src\Elmah.Mvc.Web\Areas\Admin\Controllers\ElmahController.cs:line 93&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.&lt;&gt;c__DisplayClass1c.&lt;InvokeActionResultWithFilters&gt;b__19()&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.&lt;&gt;c__DisplayClass1c.&lt;&gt;c__DisplayClass1e.&lt;InvokeActionResultWithFilters&gt;b__1b()&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)&#xD;&#xA;   at System.Web.Mvc.Controller.ExecuteCore()&#xD;&#xA;   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)&#xD;&#xA;   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;&gt;c__DisplayClass6.&lt;&gt;c__DisplayClassb.&lt;BeginProcessRequest&gt;b__5()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.&lt;&gt;c__DisplayClass1.&lt;MakeVoidDelegate&gt;b__0()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.&lt;&gt;c__DisplayClass8`1.&lt;BeginSynchronous&gt;b__7(IAsyncResult _)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;&gt;c__DisplayClasse.&lt;EndProcessRequest&gt;b__d()&#xD;&#xA;   at System.Web.Mvc.SecurityUtil.&lt;GetCallInAppTrustThunk&gt;b__0(Action f)&#xD;&#xA;   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2012-06-09T09:02:33.4853966Z" statusCode="404">
   <serverVariables>
     <item name="ALL_HTTP">
-      <value string="HTTP_CONNECTION:Keep-Alive&#xD;&#xA;HTTP_HOST:localhost:49800&#xD;&#xA;" />
+      <value string="HTTP_HOST:localhost:49800&#xD;&#xA;" />
     </item>
     <item name="ALL_RAW">
-      <value string="Connection: Keep-Alive&#xD;&#xA;Host: localhost:49800&#xD;&#xA;" />
+      <value string="Host: localhost:49800&#xD;&#xA;" />
     </item>
     <item name="APPL_MD_PATH">
       <value string="" />
@@ -88,13 +88,13 @@
       <value string="::1" />
     </item>
     <item name="PATH_INFO">
-      <value string="/admin/elmah/json" />
+      <value string="/admin/elmah/xml" />
     </item>
     <item name="PATH_TRANSLATED">
       <value string="D:\Development\Projects\elmah.mvc.controller\src\Elmah.Mvc.Web\admin\elmah" />
     </item>
     <item name="QUERY_STRING">
-      <value string="" />
+      <value string="id=d6c13c5b-f57f-41e0-b23d-6de2dfa5bba7" />
     </item>
     <item name="REMOTE_ADDR">
       <value string="::1" />
@@ -129,11 +129,13 @@
     <item name="URL">
       <value string="/admin/elmah" />
     </item>
-    <item name="HTTP_CONNECTION">
-      <value string="Keep-Alive" />
-    </item>
     <item name="HTTP_HOST">
       <value string="localhost:49800" />
     </item>
   </serverVariables>
+  <queryString>
+    <item name="id">
+      <value string="d6c13c5b-f57f-41e0-b23d-6de2dfa5bba7" />
+    </item>
+  </queryString>
 </error>
