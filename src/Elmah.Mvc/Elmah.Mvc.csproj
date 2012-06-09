@@ -50,6 +50,7 @@
     <Compile Include="Bootstrap.cs" />
     <Compile Include="ElmahController.cs" />
     <Compile Include="ElmahResult.cs" />
+    <Compile Include="HandleErrorAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,8 @@ namespace Elmah.Mvc
     {
         public static void Initialize()
         {
+            GlobalFilters.Filters.Add(new HandleErrorAttribute());
+
             var namespaces = new[] { "Elmah.Mvc" };
             var routes = RouteTable.Routes;
 
