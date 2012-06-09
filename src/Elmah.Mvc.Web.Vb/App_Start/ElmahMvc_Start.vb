@@ -1,8 +1,11 @@
-﻿'<Assembly: WebActivator.PreApplicationStartMethod(Type.GetType("ElmahMvc_Start"), "Start")> 
+﻿Imports Elmah.Mvc.Bootstrap
 
-'Public Class ElmahMvc_Start
-'    Public Shared Sub ElmahMvc_Start()
-'        Elmah.Mvc.Bootstrap.Initialize()
-'    End Sub
-'End Class
+<Assembly: WebActivator.PreApplicationStartMethod(GetType(Elmah.Mvc.Web.App_Start.ElmahMvc_Start), "Start")> 
 
+Namespace Elmah.Mvc.Web.App_Start
+    Public Class ElmahMvc_Start
+        Public Shared Sub Start()
+            Bootstrap.Initialize()
+        End Sub
+    End Class
+End Namespace

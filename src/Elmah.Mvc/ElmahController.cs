@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Elmah.Mvc.Controllers
+namespace Elmah.Mvc
 {
     public class ElmahController : Controller
     {
