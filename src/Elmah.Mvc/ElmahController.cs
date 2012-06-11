@@ -2,6 +2,7 @@
 
 namespace Elmah.Mvc
 {
+    [Authorize]
     public class ElmahController : Controller
     {
         public ActionResult Index(string resource)

@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace Elmah.Mvc.Tests.Approval
 {
+    [Ignore]
     [UseReporter(typeof(DiffReporter))]
     public class ElmahMvcTests
     {
