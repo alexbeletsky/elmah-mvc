@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Elmah.MVC</id>
-    <version>1.3.2</version>
+    <version>2.0.0-rc</version>
     <authors>Alexander Beletsky</authors>
     <owners>Alexander Beletsky</owners>
     <projectUrl>https://github.com/alexanderbeletsky/elmah.mvc.controller</projectUrl>
@@ -10,7 +10,13 @@
     <description>Painless integration of ELMAH functionality into ASP.NET MVC Application. Creates Admin area and corresponding controller, so ELMAH is availble by /admin/elmah route.</description>
     <tags>ELMAH ASP.NET MVC controller error handling</tags>
     <dependencies>
-      <dependency id="elmah" version="1.2.0.1" />
+      <dependency id="ELMAH" version="1.2.0.1" />
+      <dependency id="WebActivator" version="1.5.1" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="content\web.config.transform" target="content" />
+    <file src="content\App_Start\ElmahMvc_Start.cs.pp" target="content\App_start" />
+    <file src="..\src\Elmah.Mvc\bin\Release\Elmah.Mvc.dll" target="lib\net40" />
+  </files>
 </package>

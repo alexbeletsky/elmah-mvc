@@ -1,0 +1,7 @@
+<configuration>
+  <appSettings>
+    <add key="elmah.mvc.disableHandler" value="false" />
+    <add key="elmah.mvc.requiresAuthentication" value="false" />
+    <add key="elmah.mvc.allowedRoles" value="*" />
+  </appSettings>
+</configuration>
