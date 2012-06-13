@@ -40,11 +40,11 @@ How can I configure Elmah.MVC?
 
 There is a simple configuration section in web.config file.
 
-  <appSettings>
-    <add key="elmah.mvc.disableHandler" value="false" />
-    <add key="elmah.mvc.requiresAuthentication" value="false" />
-    <add key="elmah.mvc.allowedRoles" value="*" />
-  </appSettings>
+	<appSettings>
+		<add key="elmah.mvc.disableHandler" value="false" />
+		<add key="elmah.mvc.requiresAuthentication" value="false" />
+		<add key="elmah.mvc.allowedRoles" value="*" />
+	</appSettings>
 
 You can either disable handler or apply authentication, based on application roles.
 
