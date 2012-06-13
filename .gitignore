@@ -1,6 +1,8 @@
 build_output/*
 code_drop/*
 **/packages
+**/*.nupkg
+
 
 *.suo
 **/*.suo
@@ -38,5 +40,3 @@ tests/*
 doc/*
 SolutionVersion.cs
 gems/lib/**/*
-ElmahMvc.suo
-ElmahMvc.suo
