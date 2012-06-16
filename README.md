@@ -1,7 +1,12 @@
-ELMAH MVC Controller
-=====================
+ELMAH.MVC
+=========
 
 For painless integration of ELMAH into ASP.NET MVC application.
+
+What's changed in 2.0 version?
+------------------------------
+
+For details, please follow that blog post - [ELMAH.MVC v.2.0 - Release Candidate](http://www.beletsky.net/2012/06/elmahmvc-v200-release-candidate.html)
 
 What's the goal?
 -------------------
@@ -51,7 +56,7 @@ You can either disable handler or apply authentication, based on application rol
 Recent changes
 ==============
 
-* 13-Jun-2012 - major changes, packed to class library, HandleError attribute etc.
+* 13-Jun-2012 - v.2.0 major changes, packed to class library, HandleError attribute etc.
 * 11-Jan-2012 - minor style changes and readme correction
 * 29-Aug-2011 - nuget package created
 * 29-Aug-2011 - reimplemented controller to avoid usage of additional routing instructions
