@@ -16,7 +16,7 @@
   </metadata>
   <files>
     <file src="content\web.config.transform" target="content" />
-    <file src="content\App_Start\ElmahMvc_Start.cs.pp" target="content\App_start" />
+    <file src="content\App_Start\ElmahMvc.cs.pp" target="content\App_start" />
     <file src="..\src\Elmah.Mvc\bin\Release\Elmah.Mvc.dll" target="lib\net40" />
   </files>
 </package>
