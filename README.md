@@ -13,11 +13,11 @@ What's the goal?
 
 With ELMAH.MVC you got nice and clear MVC style routing to ELMAH error page. ELMAH can be accessed by:
 
-	http://yourapp/elmah
+	http://yourapp.com/elmah
 	
 By doing that, you can apply any authorization strategies or routes. In short, no more
 
-	http://yourapp/elmah.axd
+	http://yourapp.com/elmah.axd
 	
 That could be used for [ASP.NET session hijacking with Google and ELMAH](http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html).
 
@@ -49,13 +49,30 @@ There is a simple configuration section in web.config file.
 		<add key="elmah.mvc.disableHandler" value="false" />
 		<add key="elmah.mvc.requiresAuthentication" value="false" />
 		<add key="elmah.mvc.allowedRoles" value="*" />
+	    <add key="elmah.mvc.route" value="elmah" />
 	</appSettings>
 
 You can either disable handler or apply authentication, based on application roles.
 
+You can also tweek the ELMAH default route. If you just install the package, ELMAH will be availabled at `/elmah`, howether if you would like to change that, change `elmah.mvc.route`, this setting is a MVC route prefix, used during ELMAH routes registration. For instance, if you change that to `secure/admin/errors` you will get ELMAH at `http://yourapp.com/secure/admin/errors`.
+
+Default route issue
+-------------------
+
+You might change the `elmah.mvc.route` to a custom one, but still able to see ELMAH reports at `/elmah`. This issue is caused by the way how [ASP.NET MVC matches controllers in separate namespaces](http://www.beletsky.net/2012/07/aspnet-mvc-routes-and-namespaces.html). There are no good workaround for that (at least one I know), so if I makes a trouble to you, I recommend to reconsider the application, without using default route.  
+
+Related articles and posts
+--------------------------
+[ELMAH.MVC v.2.0.0 - Release Candidate](http://www.beletsky.net/2012/06/elmahmvc-v200-release-candidate.html)
+[ELMAH.MVC v2.0 is coming](http://www.beletsky.net/2012/06/elmahmvc-v20-is-coming.html)
+[Slides of ELMAH.MVC talk](https://speakerdeck.com/u/alexanderbeletsky/p/elmah-and-elmahmvc)
+[ELMAH MVC controller released on NuGet](http://www.beletsky.net/2011/08/elmah-mvc-controller-released-on-nuget.html)
+[Integrating ELMAH to ASP.NET MVC in right way](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
+
 Recent changes
 ==============
 
+* 16-Aug-2012 - v.2.0.1 custom routes, VB.NET support
 * 13-Jun-2012 - v.2.0 major changes, packed to class library, HandleError attribute etc.
 * 11-Jan-2012 - minor style changes and readme correction
 * 29-Aug-2011 - nuget package created
