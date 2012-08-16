@@ -63,10 +63,17 @@ You might change the `elmah.mvc.route` to a custom one, but still able to see EL
 
 Related articles and posts
 --------------------------
+
+[ELMAH.MVC 2.0.1 Update is Out](http://www.beletsky.net/2012/08/elmahmvc-201-update-is-out.html)
+
 [ELMAH.MVC v.2.0.0 - Release Candidate](http://www.beletsky.net/2012/06/elmahmvc-v200-release-candidate.html)
+
 [ELMAH.MVC v2.0 is coming](http://www.beletsky.net/2012/06/elmahmvc-v20-is-coming.html)
+
 [Slides of ELMAH.MVC talk](https://speakerdeck.com/u/alexanderbeletsky/p/elmah-and-elmahmvc)
+
 [ELMAH MVC controller released on NuGet](http://www.beletsky.net/2011/08/elmah-mvc-controller-released-on-nuget.html)
+
 [Integrating ELMAH to ASP.NET MVC in right way](http://www.beletsky.net/2011/03/integrating-elmah-to-aspnet-mvc-in.html)
 
 Recent changes
