@@ -19,6 +19,7 @@
 // limitations under the License.
 //
 
+using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -28,22 +29,24 @@ namespace Elmah.Mvc
     {
         public static void Initialize()
         {
+            var appSettings = ConfigurationManager.AppSettings;
             GlobalFilters.Filters.Add(new HandleErrorAttribute());
 
-            /* Adapted by Alexander Beletsky */
             var namespaces = new[] { "Elmah.Mvc" };
             var routes = RouteTable.Routes;
 
+            var elmahRoute = appSettings["elmah.mvc.route"] ?? "elmah";
+
             routes.MapRoute(
                 "Elmah.Mvc",
-                "elmah/{resource}",
+                string.Format("{0}/{{resource}}", elmahRoute),
                 new { controller = "Elmah", action = "Index", resource = UrlParameter.Optional },
                 null,
                 namespaces);
 
             routes.MapRoute(
                 "Elmah.Mvc.Detail",
-                "elmah/detail/{resource}",
+                string.Format("{0}/detail/{{resource}}", elmahRoute),
                 new { controller = "Elmah", action = "Detail", resource = UrlParameter.Optional },
                 null,
                 namespaces);
