@@ -47,10 +47,17 @@ There is a simple configuration section in web.config file.
 
 	<appSettings>
 		<add key="elmah.mvc.disableHandler" value="false" />
+		<add key="elmah.mvc.disableHandleErrorFilter" value="false" />
 		<add key="elmah.mvc.requiresAuthentication" value="false" />
 		<add key="elmah.mvc.allowedRoles" value="*" />
 	    <add key="elmah.mvc.route" value="elmah" />
 	</appSettings>
+
+* `elmah.mvc.disableHandler` - turn on/off ELMAH.MVC handler
+* `elmah.mvc.disableHandleErrorFilter` - by default `HandleErrorAttribute()` is set as global filter, to disable it, set value to "true"
+* `elmah.mvc.requiresAuthentication` - secure /elmah route with authentication
+* `elmah.mvc.allowedRoles` - in case of authentication is turned on, you can specify exact roles of user that have access (eg. "Admins")
+* `elmah.mvc.route` - tweek default ELMAH.MVC route
 
 You can either disable handler or apply authentication, based on application roles.
 
@@ -79,6 +86,7 @@ Related articles and posts
 Recent changes
 ==============
 
+* 06-Nov-2012 - v.2.0.2 flag to turn on/off default HandleErrorAttribute()
 * 16-Aug-2012 - v.2.0.1 custom routes, VB.NET support
 * 13-Jun-2012 - v.2.0 major changes, packed to class library, HandleError attribute etc.
 * 11-Jan-2012 - minor style changes and readme correction

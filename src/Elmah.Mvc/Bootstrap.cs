@@ -30,9 +30,15 @@ namespace Elmah.Mvc
         public static void Initialize()
         {
             var appSettings = ConfigurationManager.AppSettings;
-            if (!IsHandleErrorAttributeDisabled()) {
+            var disableHandleErrorValue = appSettings["elmah.mvc.disableHandleErrorFilter"] ?? "false";
+            var disableHandleError = false;
+            bool.TryParse(disableHandleErrorValue, out disableHandleError);
+
+            if (!disableHandleError)
+            {
                 GlobalFilters.Filters.Add(new HandleErrorAttribute());
             }
+            
             var namespaces = new[] { "Elmah.Mvc" };
             var routes = RouteTable.Routes;
 
@@ -41,21 +47,26 @@ namespace Elmah.Mvc
             routes.MapRoute(
                 "Elmah.Mvc",
                 string.Format("{0}/{{resource}}", elmahRoute),
-                new { controller = "Elmah", action = "Index", resource = UrlParameter.Optional },
+                new
+                {
+                    controller = "Elmah",
+                    action = "Index",
+                    resource = UrlParameter.Optional
+                },
                 null,
                 namespaces);
 
             routes.MapRoute(
                 "Elmah.Mvc.Detail",
                 string.Format("{0}/detail/{{resource}}", elmahRoute),
-                new { controller = "Elmah", action = "Detail", resource = UrlParameter.Optional },
+                new
+                    {
+                        controller = "Elmah",
+                        action = "Detail",
+                        resource = UrlParameter.Optional
+                    },
                 null,
                 namespaces);
-        }
-        private static bool IsHandleErrorAttributeDisabled() {
-            bool isAttributeDisabled = false;
-            bool.TryParse(appSettings["elmah.mvc.disableMvcHandleErrorAttribute"] ?? "false", out isAttributeDisabled);
-            return isAttributeDisabled;
         }
     }
 }

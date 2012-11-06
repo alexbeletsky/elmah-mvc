@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.Mvc", "Elmah.Mvc\Elmah.Mvc.csproj", "{6B480486-4311-43AA-ADD8-25CE2033D166}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D2DF6E47-71A7-43C6-A54E-B92E6D7E24F5}"
@@ -17,8 +17,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B480486-4311-43AA-ADD8-25CE2033D166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B480486-4311-43AA-ADD8-25CE2033D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
