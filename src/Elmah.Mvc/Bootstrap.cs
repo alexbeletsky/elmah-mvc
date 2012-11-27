@@ -19,7 +19,6 @@
 // limitations under the License.
 //
 
-using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -29,11 +28,7 @@ namespace Elmah.Mvc
     {
         public static void Initialize()
         {
-            var appSettings = ConfigurationManager.AppSettings;
-            var disableHandleErrorValue = appSettings["elmah.mvc.disableHandleErrorFilter"] ?? "false";
-            var disableHandleError = false;
-            bool.TryParse(disableHandleErrorValue, out disableHandleError);
-
+	        var disableHandleError = Settings.DisableHandleErrorFilter;
             if (!disableHandleError)
             {
                 GlobalFilters.Filters.Add(new HandleErrorAttribute());
@@ -42,7 +37,7 @@ namespace Elmah.Mvc
             var namespaces = new[] { "Elmah.Mvc" };
             var routes = RouteTable.Routes;
 
-            var elmahRoute = appSettings["elmah.mvc.route"] ?? "elmah";
+			var elmahRoute = Settings.Route;
 
             routes.MapRoute(
                 "Elmah.Mvc",
