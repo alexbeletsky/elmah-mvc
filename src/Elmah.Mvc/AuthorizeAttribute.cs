@@ -19,7 +19,6 @@
 // limitations under the License.
 //
 
-using System.Configuration;
 using System.Linq;
 
 namespace Elmah.Mvc
@@ -32,17 +31,13 @@ namespace Elmah.Mvc
 
         public AuthorizeAttribute()
         {
-            var appSettings = ConfigurationManager.AppSettings;
-            var allowedRoles = appSettings["elmah.mvc.allowedRoles"] ?? "*";
-            _allowedRoles = allowedRoles.Split(',')
+			_allowedRoles = Settings.AllowedRoles.Split(',')
                 .Where(r => !string.IsNullOrWhiteSpace(r))
                 .Select(r => r.Trim())
                 .ToArray();
-            var isHandlerDisabled = appSettings["elmah.mvc.disableHandler"] ?? "false";
-            bool.TryParse(isHandlerDisabled, out _isHandlerDisabled);
 
-            var requiresAuthentication = appSettings["elmah.mvc.requiresAuthentication"] ?? "false";
-            bool.TryParse(requiresAuthentication, out _requiresAuthentication);
+			_isHandlerDisabled = Settings.DisableHandler;
+			_requiresAuthentication = Settings.RequiresAuthentication;
         }
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
