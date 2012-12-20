@@ -20,6 +20,7 @@
 //
 
 using System.Linq;
+using System.Web.Mvc;
 
 namespace Elmah.Mvc
 {
@@ -42,10 +43,18 @@ namespace Elmah.Mvc
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
         {
-            return !_isHandlerDisabled
-                   && (!_requiresAuthentication
-                       || (httpContext.Request.IsAuthenticated
-                           && _allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r))));
+            var authorizationProviderForElmah =
+                DependencyResolver.Current.GetService<IAuthorizerForElmah>();
+
+            if (authorizationProviderForElmah == null)
+            {
+                return !_isHandlerDisabled
+                       && (!_requiresAuthentication
+                           || (httpContext.Request.IsAuthenticated
+                               && _allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r))));
+            }
+
+            return authorizationProviderForElmah.IsAuthorizedForElmah(httpContext.User.Identity.Name);
         }
     }
 }

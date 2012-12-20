@@ -1,4 +1,4 @@
-﻿//
+//
 // ELMAH.Mvc
 // Copyright (c) 2011 Atif Aziz, James Driscoll. All rights reserved.
 //
