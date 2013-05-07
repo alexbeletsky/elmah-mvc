@@ -14,11 +14,11 @@ What's the goal?
 With ELMAH.MVC you got nice and clear MVC style routing to ELMAH error page. ELMAH can be accessed by:
 
 	http://yourapp.com/elmah
-	
+
 By doing that, you can apply any authorization strategies or routes. In short, no more
 
 	http://yourapp.com/elmah.axd
-	
+
 That could be used for [ASP.NET session hijacking with Google and ELMAH](http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html).
 
 How to use in my application?
@@ -29,7 +29,7 @@ Easy. Install ELMAH by NuGet, in package console
 	Install-Package Elmah.MVC
 
 For further ELMAH configuration please check the [documentation](https://code.google.com/p/elmah/).
-	
+
 Should I use HandleErrorAttribute?
 ----------------------------------
 
@@ -38,8 +38,8 @@ If you tried to use ELMAH in ASP.NET MVC, you are probably implemented your own 
 Will exceptions being logged in "customError='On'" mode?
 --------------------------------------------------------
 
-Yes, even in you configured application to use custom error pages, the exception will be logged. 
-	
+Yes, even in you configured application to use custom error pages, the exception will be logged.
+
 How can I configure Elmah.MVC?
 ------------------------------
 
@@ -66,7 +66,9 @@ You can also tweek the ELMAH default route. If you just install the package, ELM
 Default route issue
 -------------------
 
-You might change the `elmah.mvc.route` to a custom one, but still able to see ELMAH reports at `/elmah`. This issue is caused by the way how [ASP.NET MVC matches controllers in separate namespaces](http://www.beletsky.net/2012/07/aspnet-mvc-routes-and-namespaces.html). There are no good workaround for that (at least one I know), so if I makes a trouble to you, I recommend to reconsider the application, without using default route.  
+You might change the `elmah.mvc.route` to a custom one, but still able to see ELMAH reports at `/elmah`. This issue is caused by the way how [ASP.NET MVC matches controllers in separate namespaces](http://www.beletsky.net/2012/07/aspnet-mvc-routes-and-namespaces.html). There are no good workaround for that (at least one I know), so if I makes a trouble to you, I recommend to reconsider the application, without using default route.
+
+UPDATE: You might also consider ignoring ``/elmah`` route explicitly as described [here](https://github.com/alexanderbeletsky/elmah.mvc/issues/26).
 
 Related articles and posts
 --------------------------
