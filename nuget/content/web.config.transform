@@ -3,6 +3,7 @@
     <add key="elmah.mvc.disableHandler" value="false" />
     <add key="elmah.mvc.disableHandleErrorFilter" value="false" />
     <add key="elmah.mvc.requiresAuthentication" value="false" />
+    <add key="elmah.mvc.IgnoreDefaultRoute" value="false" />
     <add key="elmah.mvc.allowedRoles" value="*" />
     <add key="elmah.mvc.route" value="elmah" />
   </appSettings>
