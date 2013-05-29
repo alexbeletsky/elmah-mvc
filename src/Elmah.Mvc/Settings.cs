@@ -51,6 +51,11 @@ namespace Elmah.Mvc
 			get { return GetBoolValue("elmah.mvc.requiresAuthentication", false); }
 		}
 
+        public static bool IgnoreDefaultRoute
+        {
+            get { return GetBoolValue("elmah.mvc.IgnoreDefaultRoute", false); }
+        }
+
 		private static bool GetBoolValue(string key, bool defaultValue)
 		{
 			var value = ConfigurationManager.AppSettings[key];
