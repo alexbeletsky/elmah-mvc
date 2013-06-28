@@ -31,6 +31,11 @@ namespace Elmah.Mvc
 			get { return ConfigurationManager.AppSettings["elmah.mvc.allowedRoles"] ?? "*"; }
 		}
 
+	    public static string AllowedUsers
+	    {
+            get { return ConfigurationManager.AppSettings["elmah.mvc.allowedUsers"] ?? "*"; }
+	    }
+
 		public static string Route
 		{
 			get { return ConfigurationManager.AppSettings["elmah.mvc.route"] ?? "elmah"; }
