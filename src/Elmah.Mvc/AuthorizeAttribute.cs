@@ -26,26 +26,42 @@ namespace Elmah.Mvc
     internal class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
     {
         private readonly string[] _allowedRoles;
+        private readonly string[] _allowedUsers;
+
         private readonly bool _isHandlerDisabled;
         private readonly bool _requiresAuthentication;
 
         public AuthorizeAttribute()
         {
-			_allowedRoles = Settings.AllowedRoles.Split(',')
-                .Where(r => !string.IsNullOrWhiteSpace(r))
-                .Select(r => r.Trim())
-                .ToArray();
+            _allowedRoles = Settings.AllowedRoles.Split(',')
+                            .Where(r => !string.IsNullOrWhiteSpace(r))
+                            .Select(r => r.Trim())
+                            .ToArray();
 
-			_isHandlerDisabled = Settings.DisableHandler;
-			_requiresAuthentication = Settings.RequiresAuthentication;
+            _allowedUsers = Settings.AllowedUsers.Split(',')
+                                    .Where(r => !string.IsNullOrWhiteSpace(r))
+                                    .Select(r => r.Trim())
+                                    .ToArray();
+
+            _isHandlerDisabled = Settings.DisableHandler;
+            _requiresAuthentication = Settings.RequiresAuthentication;
         }
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
         {
-            return !_isHandlerDisabled
-                   && (!_requiresAuthentication
-                       || (httpContext.Request.IsAuthenticated
-                           && _allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r))));
+            return !_isHandlerDisabled && (!_requiresAuthentication || UserIsAllowedByName(httpContext) || UserIsAllowedByRole(httpContext));
+        }
+
+        private bool UserIsAllowedByRole(System.Web.HttpContextBase httpContext)
+        {
+            return httpContext.Request.IsAuthenticated &&
+                   (_allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r)));
+        }
+
+        private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
+        {
+            return httpContext.Request.IsAuthenticated &&
+                  (_allowedUsers.Any(u => u == "*" || httpContext.User.Identity.Name == u));
         }
     }
 }
