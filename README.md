@@ -50,8 +50,8 @@ There is a simple configuration section in web.config file.
 		<add key="elmah.mvc.disableHandleErrorFilter" value="false" />
 		<add key="elmah.mvc.requiresAuthentication" value="false" />
 		<add key="elmah.mvc.allowedRoles" value="*" />
-                <add key="elmah.mvc.allowedUsers" value="*" />
-	    <add key="elmah.mvc.route" value="elmah" />
+		<add key="elmah.mvc.allowedUsers" value="*" />
+		<add key="elmah.mvc.route" value="elmah" />
 	</appSettings>
 
 * `elmah.mvc.disableHandler` - turn on/off ELMAH.MVC handler
@@ -70,7 +70,9 @@ Default route issue
 
 You might change the `elmah.mvc.route` to a custom one, but still able to see ELMAH reports at `/elmah`. This issue is caused by the way how [ASP.NET MVC matches controllers in separate namespaces](http://www.beletsky.net/2012/07/aspnet-mvc-routes-and-namespaces.html). There are no good workaround for that (at least one I know), so if I makes a trouble to you, I recommend to reconsider the application, without using default route.
 
-UPDATE: You might also consider ignoring ``/elmah`` route explicitly as described [here](https://github.com/alexanderbeletsky/elmah.mvc/issues/26).
+**UPDATE**: You might also consider ignoring ``/elmah`` route explicitly as described [here](https://github.com/alexanderbeletsky/elmah.mvc/issues/26).
+
+**UPDATE 2**: [@chaoaretasty](https://github.com/chaoaretasty) has added an option, to allow ignoring default role. Set `elmah.mvc.IgnoreDefaultRoute` setting option to `true`.
 
 Related articles and posts
 --------------------------
