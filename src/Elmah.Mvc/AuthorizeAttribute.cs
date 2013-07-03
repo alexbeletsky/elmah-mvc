@@ -49,15 +49,36 @@ namespace Elmah.Mvc
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
         {
-            return !_isHandlerDisabled && (!_requiresAuthentication || UserIsAllowedByName(httpContext) || UserIsAllowedByRole(httpContext));
+            return !_isHandlerDisabled && (!_requiresAuthentication || UserIsAllowed(httpContext));
         }
 
+        /// <summary>
+        /// Check that current user is in allowed roles AND in allowed usernames
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
+        private bool UserIsAllowed(System.Web.HttpContextBase httpContext)
+        {
+
+            return UserIsAllowedByRole(httpContext) && UserIsAllowedByName(httpContext);
+        }
+
+        /// <summary>
+        /// Check that current user is  in allowed roles
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
         private bool UserIsAllowedByRole(System.Web.HttpContextBase httpContext)
         {
             return httpContext.Request.IsAuthenticated &&
                    (_allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r)));
         }
 
+        /// <summary>
+        /// Check that user is in allowed usernames
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
         private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
         {
             return httpContext.Request.IsAuthenticated &&
