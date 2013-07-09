@@ -92,6 +92,7 @@ Related articles and posts
 Recent changes
 ==============
 
+* 09-Jul-2013 - v.2.1.1 fixes by [@papci](https://github.com/papci)
 * 01-Jul-2013 - v.2.1.0 user based authentication by [@papci](https://github.com/papci)
 * 02-Jun-2013 - v.2.0.3 ignoring default role by [@chaoaretasty](https://github.com/chaoaretasty)
 * 06-Nov-2012 - v.2.0.2 flag to turn on/off default HandleErrorAttribute()
