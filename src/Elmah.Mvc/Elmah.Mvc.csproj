@@ -40,7 +40,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc/>
+    <Reference Include="System.Web.Mvc" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
