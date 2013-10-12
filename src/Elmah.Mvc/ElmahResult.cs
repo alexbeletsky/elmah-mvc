@@ -65,7 +65,10 @@ namespace Elmah.Mvc
 
             var unwrappedHttpContext = httpContext.ApplicationInstance.Context;
             var handler = new ErrorLogPageFactory().GetHandler(unwrappedHttpContext, null, null, null);
-            handler.ProcessRequest(unwrappedHttpContext);
+            if(handler != null)
+            {
+                handler.ProcessRequest(unwrappedHttpContext);
+            }
         }
     }
 }
