@@ -60,7 +60,7 @@ namespace Elmah.Mvc
         private bool UserIsAllowed(System.Web.HttpContextBase httpContext)
         {
 
-            return UserIsAllowedByRole(httpContext) && UserIsAllowedByName(httpContext);
+            return UserIsAllowedByRole(httpContext) || UserIsAllowedByName(httpContext);
         }
 
         /// <summary>
