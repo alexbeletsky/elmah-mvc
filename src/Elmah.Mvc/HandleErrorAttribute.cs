@@ -20,6 +20,7 @@
 //
 
 using System;
+using System.Collections.Specialized;
 using System.Web;
 using System.Web.Mvc;
 
@@ -38,6 +39,13 @@ namespace Elmah.Mvc
 
             var e = context.Exception;
             var httpContext = context.HttpContext.ApplicationInstance.Context;
+
+            if (e is HttpRequestValidationException)
+            {
+                LogValidationException(e, httpContext);
+                return;
+            }
+
             if (httpContext != null && 
                 (RaiseErrorSignal(e, httpContext) // prefer signaling, if possible
                  || IsFiltered(e, httpContext))) // filtered?
@@ -46,13 +54,14 @@ namespace Elmah.Mvc
             LogException(e, httpContext);
         }
 
+     
         private static bool RaiseErrorSignal(Exception e, HttpContext context)
         {
             var signal = ErrorSignal.FromContext(context);
             if (signal == null)
                 return false;
             signal.Raise(e, context);
-            return true;
+                return true;
         }
 
         private static bool IsFiltered(Exception e, HttpContext context)
@@ -69,7 +78,13 @@ namespace Elmah.Mvc
 
         private static void LogException(Exception e, HttpContext context)
         {
-            ErrorLog.GetDefault(context).Log(new Error(e, context));
+            ErrorLog.GetDefault(context).Log(new Error(e, context));         
+        }
+
+        private static void LogValidationException(Exception e, HttpContext context)
+        {
+            // Log the error without passing the HttpContext (which will throw an exception)
+            ErrorLog.GetDefault(context).Log(new Error(e));
         }
     }
 }
