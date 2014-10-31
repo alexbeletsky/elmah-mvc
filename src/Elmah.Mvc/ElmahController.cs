@@ -19,7 +19,10 @@
 // limitations under the License.
 //
 
+using System.Linq;
+using System.Security.Principal;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Elmah.Mvc
 {
@@ -36,6 +39,30 @@ namespace Elmah.Mvc
         {
             /* Adapted by Alexander Beletsky */
             return new ElmahResult();
+        }
+        
+		/// <summary>
+		/// Copies over current authorization to the filtercontext, prior to authorizing access to the Elmah location
+		/// </summary>
+		/// <param name="filterContext"></param>
+		protected override void OnAuthorization(AuthorizationContext filterContext)
+		{
+			var cookieName = FormsAuthentication.FormsCookieName;
+
+			if (filterContext.HttpContext.User.Identity.IsAuthenticated && filterContext.HttpContext.Request.Cookies != null && filterContext.HttpContext.Request.Cookies[cookieName] != null)
+			{
+				var authenticationTicket = FormsAuthentication.Decrypt(filterContext.HttpContext.Request.Cookies[cookieName].Value);
+
+				if (authenticationTicket != null)
+				{
+					var roles = authenticationTicket.UserData.Split('|').Where(r => !string.IsNullOrEmpty(r)).ToArray();
+
+					var userIdentity = new GenericIdentity(authenticationTicket.Name);
+					var userPrincipal = new GenericPrincipal(userIdentity, roles);
+
+					filterContext.HttpContext.User = userPrincipal;
+				}
+			}	
         }
     }
 }
