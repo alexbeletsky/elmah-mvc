@@ -67,6 +67,7 @@ namespace Elmah.Mvc
             {
                 routes.IgnoreRoute("elmah");
                 routes.IgnoreRoute("elmah/{*pathinfo}");
+                routes.IgnoreRoute("{*elmahinsubfolder}", new { elmahinsubfolder = @".*/elmah(/.*)?" });
             }
         }
     }
