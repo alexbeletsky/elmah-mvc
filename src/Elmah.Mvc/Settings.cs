@@ -61,6 +61,14 @@ namespace Elmah.Mvc
             get { return GetBoolValue("elmah.mvc.IgnoreDefaultRoute", false); }
         }
 
+	    public static bool CaseSensitive
+	    {
+            get
+            {
+                return GetBoolValue("elmah.mvc.CaseSensitive", false);
+            }
+	    }
+
 		private static bool GetBoolValue(string key, bool defaultValue)
 		{
 			var value = ConfigurationManager.AppSettings[key];
