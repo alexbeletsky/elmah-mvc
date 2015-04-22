@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Web;
 
@@ -34,5 +35,5 @@ using System.Web;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0.*")]
 [assembly: AssemblyFileVersion("2.0.0")]
-
+[assembly: InternalsVisibleTo("Elmah.Mvc.Tests")]
 [assembly: PreApplicationStartMethod(typeof(Elmah.Mvc.Bootstrap), "Initialize")]

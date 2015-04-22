@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.Mvc", "Elmah.Mvc\Elmah.Mvc.csproj", "{6B480486-4311-43AA-ADD8-25CE2033D166}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D2DF6E47-71A7-43C6-A54E-B92E6D7E24F5}"
@@ -8,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D2DF6E
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{88A9A84A-1E8C-4486-9867-EE56FDA05044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{6B480486-4311-43AA-ADD8-25CE2033D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B480486-4311-43AA-ADD8-25CE2033D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A9A84A-1E8C-4486-9867-EE56FDA05044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A9A84A-1E8C-4486-9867-EE56FDA05044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A9A84A-1E8C-4486-9867-EE56FDA05044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A9A84A-1E8C-4486-9867-EE56FDA05044}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
