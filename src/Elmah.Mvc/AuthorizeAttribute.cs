@@ -81,14 +81,15 @@ namespace Elmah.Mvc
         /// <returns></returns>
         private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
         {
+            var stringComparison = StringComparison.Ordinal;
+            
             if (!Settings.CaseSensitive)
             {
-                return httpContext.Request.IsAuthenticated
-                       && (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name)));
+                stringComparison = StringComparison.OrdinalIgnoreCase;
             }
 
             return httpContext.Request.IsAuthenticated &&
-                  (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, StringComparison.OrdinalIgnoreCase)));
+                  (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, stringComparison)));
         }
     }
 }
