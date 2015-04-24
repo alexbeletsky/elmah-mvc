@@ -82,8 +82,8 @@ namespace Elmah.Mvc
         private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
         {
             var stringComparison = StringComparison.Ordinal;
-            
-            if (!Settings.CaseSensitive)
+
+            if (!Settings.UserAuthCaseSensitive)
             {
                 stringComparison = StringComparison.OrdinalIgnoreCase;
             }

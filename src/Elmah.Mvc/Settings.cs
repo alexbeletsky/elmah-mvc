@@ -61,7 +61,7 @@ namespace Elmah.Mvc
             get { return GetBoolValue("elmah.mvc.IgnoreDefaultRoute", false); }
         }
 
-	    public static bool CaseSensitive
+        public static bool UserAuthCaseSensitive
 	    {
             get
             {
