@@ -18,7 +18,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
+using System;
 using System.Linq;
 
 namespace Elmah.Mvc
@@ -81,8 +81,10 @@ namespace Elmah.Mvc
         /// <returns></returns>
         private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
         {
+            var stringComparison = Settings.UserAuthCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;
+
             return httpContext.Request.IsAuthenticated &&
-                  (_allowedUsers.Any(u => u == "*" || httpContext.User.Identity.Name == u));
+                  (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, stringComparison)));
         }
     }
 }
