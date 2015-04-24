@@ -81,12 +81,7 @@ namespace Elmah.Mvc
         /// <returns></returns>
         private bool UserIsAllowedByName(System.Web.HttpContextBase httpContext)
         {
-            var stringComparison = StringComparison.Ordinal;
-
-            if (!Settings.UserAuthCaseSensitive)
-            {
-                stringComparison = StringComparison.OrdinalIgnoreCase;
-            }
+            var stringComparison = Settings.UserAuthCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;
 
             return httpContext.Request.IsAuthenticated &&
                   (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, stringComparison)));
