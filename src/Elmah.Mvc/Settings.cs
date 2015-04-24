@@ -65,7 +65,7 @@ namespace Elmah.Mvc
 	    {
             get
             {
-                return GetBoolValue("elmah.mvc.CaseSensitive", false);
+                return GetBoolValue("elmah.mvc.UserAuthCaseSensitive", false);
             }
 	    }
 
