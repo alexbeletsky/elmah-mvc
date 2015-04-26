@@ -19,11 +19,11 @@
 // limitations under the License.
 //
 
-using System;
-using System.Web.Mvc;
-
 namespace Elmah.Mvc
 {
+    using System;
+    using System.Web.Mvc;
+
     internal class ElmahResult : ActionResult
     {
         public override void ExecuteResult(ControllerContext context)
