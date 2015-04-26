@@ -19,45 +19,66 @@
 // limitations under the License.
 //
 
-using System.Configuration;
-
 namespace Elmah.Mvc
 {
+    using System.Configuration;
+
 	internal class Settings
 	{
 		public static string AllowedRoles
 		{
-			get { return ConfigurationManager.AppSettings["elmah.mvc.allowedRoles"] ?? "*"; }
+			get
+			{
+			    return ConfigurationManager.AppSettings["elmah.mvc.allowedRoles"] ?? "*";
+			}
 		}
 
 	    public static string AllowedUsers
 	    {
-            get { return ConfigurationManager.AppSettings["elmah.mvc.allowedUsers"] ?? "*"; }
+            get
+            {
+                return ConfigurationManager.AppSettings["elmah.mvc.allowedUsers"] ?? "*";
+            }
 	    }
 
 		public static string Route
 		{
-			get { return ConfigurationManager.AppSettings["elmah.mvc.route"] ?? "elmah"; }
+			get
+			{
+			    return ConfigurationManager.AppSettings["elmah.mvc.route"] ?? "elmah";
+			}
 		}
 
 		public static bool DisableHandleErrorFilter
 		{
-			get { return GetBoolValue("elmah.mvc.disableHandleErrorFilter", false); }
+			get
+			{
+			    return GetBoolValue("elmah.mvc.disableHandleErrorFilter", false);
+			}
 		}
 
 		public static bool DisableHandler
 		{
-			get { return GetBoolValue("elmah.mvc.disableHandler", false); }
+			get
+			{
+			    return GetBoolValue("elmah.mvc.disableHandler", false);
+			}
 		}
 
 		public static bool RequiresAuthentication
 		{
-			get { return GetBoolValue("elmah.mvc.requiresAuthentication", false); }
+			get
+			{
+			    return GetBoolValue("elmah.mvc.requiresAuthentication", false);
+			}
 		}
 
         public static bool IgnoreDefaultRoute
         {
-            get { return GetBoolValue("elmah.mvc.IgnoreDefaultRoute", false); }
+            get
+            {
+                return GetBoolValue("elmah.mvc.IgnoreDefaultRoute", false);
+            }
         }
 
         public static bool UserAuthCaseSensitive
@@ -71,12 +92,20 @@ namespace Elmah.Mvc
 		private static bool GetBoolValue(string key, bool defaultValue)
 		{
 			var value = ConfigurationManager.AppSettings[key];
-			if (value == null)
-				return defaultValue;
-			bool returnValue;
-			if (!bool.TryParse(value, out returnValue))
-				return defaultValue;
-			return returnValue;
+		    
+            if (value == null)
+		    {
+		        return defaultValue;
+		    }
+
+		    bool returnValue;
+		    
+            if (!bool.TryParse(value, out returnValue))
+		    {
+		        return defaultValue;
+		    }
+
+		    return returnValue;
 		}
 	}
 }
