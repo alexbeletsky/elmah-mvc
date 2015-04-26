@@ -19,12 +19,12 @@
 // limitations under the License.
 //
 
-using System;
-using System.Web;
-using System.Web.Mvc;
-
 namespace Elmah.Mvc
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+
     internal sealed class HandleErrorAttribute : System.Web.Mvc.HandleErrorAttribute
     {
         private static ErrorFilterConfiguration config;
@@ -33,15 +33,20 @@ namespace Elmah.Mvc
         {
             base.OnException(context);
 
-            if (!context.ExceptionHandled) // if unhandled, will be logged anyhow
+            if (!context.ExceptionHandled)
+            {
+                // if unhandled, will be logged anyhow
                 return;
+            }
 
             var e = context.Exception;
             var httpContext = context.HttpContext.ApplicationInstance.Context;
-            if (httpContext != null && 
-                (RaiseErrorSignal(e, httpContext) // prefer signaling, if possible
-                 || IsFiltered(e, httpContext))) // filtered?
+
+            if (httpContext != null && (RaiseErrorSignal(e, httpContext) // prefer signaling, if possible
+                                        || IsFiltered(e, httpContext))) // filtered?
+            {
                 return;
+            }
 
             LogException(e, httpContext);
         }
@@ -49,8 +54,12 @@ namespace Elmah.Mvc
         private static bool RaiseErrorSignal(Exception e, HttpContext context)
         {
             var signal = ErrorSignal.FromContext(context);
+            
             if (signal == null)
+            {
                 return false;
+            }
+
             signal.Raise(e, context);
             return true;
         }
