@@ -25,31 +25,31 @@ namespace Elmah.Mvc
 {
     internal class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
     {
-        private readonly string[] _allowedRoles;
-        private readonly string[] _allowedUsers;
+        private readonly string[] allowedRoles;
+        private readonly string[] allowedUsers;
 
-        private readonly bool _isHandlerDisabled;
-        private readonly bool _requiresAuthentication;
+        private readonly bool isHandlerDisabled;
+        private readonly bool requiresAuthentication;
 
         public AuthorizeAttribute()
         {
-            _allowedRoles = Settings.AllowedRoles.Split(',')
+            this.allowedRoles = Settings.AllowedRoles.Split(',')
                             .Where(r => !string.IsNullOrWhiteSpace(r))
                             .Select(r => r.Trim())
                             .ToArray();
 
-            _allowedUsers = Settings.AllowedUsers.Split(',')
+            this.allowedUsers = Settings.AllowedUsers.Split(',')
                                     .Where(r => !string.IsNullOrWhiteSpace(r))
                                     .Select(r => r.Trim())
                                     .ToArray();
 
-            _isHandlerDisabled = Settings.DisableHandler;
-            _requiresAuthentication = Settings.RequiresAuthentication;
+            this.isHandlerDisabled = Settings.DisableHandler;
+            this.requiresAuthentication = Settings.RequiresAuthentication;
         }
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
         {
-            return !_isHandlerDisabled && (!_requiresAuthentication || UserIsAllowed(httpContext));
+            return !this.isHandlerDisabled && (!this.requiresAuthentication || this.UserIsAllowed(httpContext));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Elmah.Mvc
         private bool UserIsAllowed(System.Web.HttpContextBase httpContext)
         {
 
-            return UserIsAllowedByRole(httpContext) && UserIsAllowedByName(httpContext);
+            return this.UserIsAllowedByRole(httpContext) && this.UserIsAllowedByName(httpContext);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Elmah.Mvc
         private bool UserIsAllowedByRole(System.Web.HttpContextBase httpContext)
         {
             return httpContext.Request.IsAuthenticated &&
-                   (_allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r)));
+                   (this.allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r)));
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Elmah.Mvc
             var stringComparison = Settings.UserAuthCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;
 
             return httpContext.Request.IsAuthenticated &&
-                  (_allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, stringComparison)));
+                  (this.allowedUsers.Any(u => u == "*" || u.Equals(httpContext.User.Identity.Name, stringComparison)));
         }
     }
 }
