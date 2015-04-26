@@ -18,11 +18,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-using System;
-using System.Linq;
 
 namespace Elmah.Mvc
 {
+    using System;
+    using System.Linq;
+
     internal class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
     {
         private readonly string[] allowedRoles;
