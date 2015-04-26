@@ -19,10 +19,10 @@
 // limitations under the License.
 //
 
-using System.Web.Mvc;
-
 namespace Elmah.Mvc
 {
+    using System.Web.Mvc;
+
     [Authorize]
     public class ElmahController : Controller
     {
