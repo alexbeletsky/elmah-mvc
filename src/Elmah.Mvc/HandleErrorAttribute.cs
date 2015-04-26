@@ -27,7 +27,7 @@ namespace Elmah.Mvc
 {
     internal sealed class HandleErrorAttribute : System.Web.Mvc.HandleErrorAttribute
     {
-        private static ErrorFilterConfiguration _config;
+        private static ErrorFilterConfiguration config;
 
         public override void OnException(ExceptionContext context)
         {
@@ -57,14 +57,14 @@ namespace Elmah.Mvc
 
         private static bool IsFiltered(Exception e, HttpContext context)
         {
-            if (_config == null)
+            if (config == null)
             {
-                _config = context.GetSection("elmah/errorFilter") as ErrorFilterConfiguration 
+                config = context.GetSection("elmah/errorFilter") as ErrorFilterConfiguration 
                           ?? new ErrorFilterConfiguration();
             }
 
             var testContext = new ErrorFilterModule.AssertionHelperContext(e, context);
-            return _config.Assertion.Test(testContext);
+            return config.Assertion.Test(testContext);
         }
 
         private static void LogException(Exception e, HttpContext context)
