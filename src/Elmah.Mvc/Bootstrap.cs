@@ -19,11 +19,11 @@
 // limitations under the License.
 //
 
-using System.Web.Mvc;
-using System.Web.Routing;
-
 namespace Elmah.Mvc
 {
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
     public class Bootstrap
     {
         public static void Initialize()
