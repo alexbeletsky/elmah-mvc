@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/b2qui7s4kv3w784u/branch/master?svg=true)](https://ci.appveyor.com/project/issafram/elmah-mvc/branch/master)
+
 ELMAH.MVC
 =========
 
