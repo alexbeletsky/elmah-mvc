@@ -3,6 +3,8 @@
 ELMAH.MVC
 =========
 
+[![Join the chat at https://gitter.im/alexbeletsky/elmah-mvc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alexbeletsky/elmah-mvc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 For painless integration of ELMAH into ASP.NET MVC application.
 
 What's changed in 2.0 version?
