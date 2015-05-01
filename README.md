@@ -95,6 +95,7 @@ Related articles and posts
 Recent changes
 ==============
 
+* 30-Apr-2015 - v.2.1.2 Added `UserAuthCaseSensitive` setting by [@issafram](https://github.com/issafram). `IgnoreDefaultRoute` now works for subfolders by [@DavidDeSloovere](https://github.com/DavidDeSloovere).
 * 09-Jul-2013 - v.2.1.1 fixes by [@papci](https://github.com/papci)
 * 01-Jul-2013 - v.2.1.0 user based authentication by [@papci](https://github.com/papci)
 * 02-Jun-2013 - v.2.0.3 ignoring default role by [@chaoaretasty](https://github.com/chaoaretasty)
