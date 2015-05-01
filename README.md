@@ -1,7 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/b2qui7s4kv3w784u/branch/master?svg=true)](https://ci.appveyor.com/project/issafram/elmah-mvc/branch/master) [![Join the chat at https://gitter.im/alexbeletsky/elmah-mvc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alexbeletsky/elmah-mvc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 ELMAH.MVC
 =========
+[![Build status](https://ci.appveyor.com/api/projects/status/b2qui7s4kv3w784u/branch/master?svg=true)](https://ci.appveyor.com/project/issafram/elmah-mvc/branch/master) [![Join the chat at https://gitter.im/alexbeletsky/elmah-mvc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alexbeletsky/elmah-mvc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 For painless integration of ELMAH into ASP.NET MVC application.
 
@@ -51,9 +50,11 @@ There is a simple configuration section in web.config file.
 		<add key="elmah.mvc.disableHandler" value="false" />
 		<add key="elmah.mvc.disableHandleErrorFilter" value="false" />
 		<add key="elmah.mvc.requiresAuthentication" value="false" />
+		<add key="elmah.mvc.IgnoreDefaultRoute" value="false" />
 		<add key="elmah.mvc.allowedRoles" value="*" />
 		<add key="elmah.mvc.allowedUsers" value="*" />
 		<add key="elmah.mvc.route" value="elmah" />
+		<add key="elmah.mvc.UserAuthCaseSensitive" value="true" />
 	</appSettings>
 
 * `elmah.mvc.disableHandler` - turn on/off ELMAH.MVC handler
