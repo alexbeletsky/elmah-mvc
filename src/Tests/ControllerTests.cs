@@ -31,5 +31,15 @@
             // Assert
             Assert.IsType<ElmahResult>(actionResult);
         }
+
+        [Fact]
+        public void ElmahResult_ExecuteResult_ControllerContextIsNull()
+        {
+            // Arrange
+            var elmahResult = new ElmahResult();
+
+            // Assert
+            Assert.DoesNotThrow(() => elmahResult.ExecuteResult(null));
+        }
     }
 }
