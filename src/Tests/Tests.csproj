@@ -67,6 +67,7 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ControllerTests.cs" />
+    <Compile Include="ElmahResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
