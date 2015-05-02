@@ -28,6 +28,11 @@ namespace Elmah.Mvc
     {
         public override void ExecuteResult(ControllerContext context)
         {
+            if (context == null)
+            {
+                return;
+            }
+
             // try and get the resource from the {resource} part of the route
             var routeDataValues = context.RequestContext.RouteData.Values;
             var resource = routeDataValues["resource"];
