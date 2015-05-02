@@ -39,13 +39,21 @@ namespace Elmah.Mvc
             if (resource == null)
             {
                 // alternatively, try the {action} 
-                var action = routeDataValues["action"].ToString();
+                var action = routeDataValues["action"];
                 // but only if it is elmah/Detail/{resource}
-                if ("Detail".Equals(action, StringComparison.OrdinalIgnoreCase))
+                if (action != null && "Detail".Equals(action.ToString(), StringComparison.OrdinalIgnoreCase))
+                {
                     resource = action;
+                }
             }
 
             var httpContext = context.HttpContext;
+            
+            if (httpContext == null)
+            {
+                return;
+            }
+
             var request = httpContext.Request;
             var currentPath = request.Path;
             var queryString = request.QueryString;
@@ -61,18 +69,21 @@ namespace Elmah.Mvc
             else
             {
                 // we can't have paths such as elmah/ as the ELMAH handler will generate URIs such as elmah//stylesheet
-                if (currentPath.EndsWith("/"))
+                if (currentPath != null && currentPath.EndsWith("/"))
                 {
                     var newPath = currentPath.Remove(currentPath.Length - 1);
                     httpContext.RewritePath(newPath, null, queryString.ToString());
                 }
             }
 
-            var unwrappedHttpContext = httpContext.ApplicationInstance.Context;
-            var handler = new ErrorLogPageFactory().GetHandler(unwrappedHttpContext, null, null, null);
-            if(handler != null)
+            if (httpContext.ApplicationInstance != null)
             {
-                handler.ProcessRequest(unwrappedHttpContext);
+                var unwrappedHttpContext = httpContext.ApplicationInstance.Context;
+                var handler = new ErrorLogPageFactory().GetHandler(unwrappedHttpContext, null, null, null);
+                if (handler != null)
+                {
+                    handler.ProcessRequest(unwrappedHttpContext);
+                }
             }
         }
     }
