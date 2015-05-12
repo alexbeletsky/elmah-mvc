@@ -26,6 +26,8 @@ namespace Elmah.Mvc
 
     internal class ElmahResult : ActionResult
     {
+        private const string DetailAction = "Detail";
+
         public override void ExecuteResult(ControllerContext context)
         {
             if (context == null)
@@ -41,7 +43,7 @@ namespace Elmah.Mvc
                 // alternatively, try the {action} 
                 var action = routeDataValues["action"];
                 // but only if it is elmah/Detail/{resource}
-                if (action != null && "Detail".Equals(action.ToString(), StringComparison.OrdinalIgnoreCase))
+                if (action != null && DetailAction.Equals(action.ToString(), StringComparison.OrdinalIgnoreCase))
                 {
                     resource = action;
                 }
