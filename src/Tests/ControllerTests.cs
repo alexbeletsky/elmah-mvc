@@ -1,7 +1,5 @@
 ﻿namespace Elmah.Mvc.Tests
 {
-    using Elmah.Mvc;
-
     using Xunit;
 
     public class ControllerTests
@@ -11,7 +9,7 @@
         {
             // Arrange
             var controller = new ElmahController();
-            
+
             // Act
             var actionResult = controller.Index("test");
 
