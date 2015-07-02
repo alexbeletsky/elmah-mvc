@@ -86,7 +86,7 @@ Related articles and posts
 
 [ELMAH.MVC v2.0 is coming](http://www.beletsky.net/2012/06/elmahmvc-v20-is-coming.html)
 
-[Slides of ELMAH.MVC talk](https://speakerdeck.com/u/alexanderbeletsky/p/elmah-and-elmahmvc)
+[Slides of ELMAH.MVC talk](https://speakerdeck.com/alexbeletsky/elmah-and-elmahmvc)
 
 [ELMAH MVC controller released on NuGet](http://www.beletsky.net/2011/08/elmah-mvc-controller-released-on-nuget.html)
 
