@@ -6,6 +6,7 @@
     <add key="elmah.mvc.IgnoreDefaultRoute" value="false" />
     <add key="elmah.mvc.allowedRoles" value="*" />
     <add key="elmah.mvc.allowedUsers" value="*" />
+    <add key="elmah.mvc.allowedClaims" value="*" />
     <add key="elmah.mvc.route" value="elmah" />
     <add key="elmah.mvc.UserAuthCaseSensitive" value="true" />
   </appSettings>

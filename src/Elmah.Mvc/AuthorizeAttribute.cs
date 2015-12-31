@@ -23,11 +23,13 @@ namespace Elmah.Mvc
 {
     using System;
     using System.Linq;
+    using System.Security.Claims;
 
     internal class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
     {
         private readonly string[] allowedRoles;
         private readonly string[] allowedUsers;
+        private readonly string[] allowedClaims;
 
         private readonly bool isHandlerDisabled;
         private readonly bool requiresAuthentication;
@@ -43,6 +45,11 @@ namespace Elmah.Mvc
                                     .Where(r => !string.IsNullOrWhiteSpace(r))
                                     .Select(r => r.Trim())
                                     .ToArray();
+
+            this.allowedClaims = Settings.AllowedClaims.Split(',')
+                                         .Where(c => !string.IsNullOrWhiteSpace(c))
+                                         .Select(c => c.Trim())
+                                         .ToArray();
 
             this.isHandlerDisabled = Settings.DisableHandler;
             this.requiresAuthentication = Settings.RequiresAuthentication;
@@ -61,7 +68,9 @@ namespace Elmah.Mvc
         private bool UserIsAllowed(System.Web.HttpContextBase httpContext)
         {
 
-            return this.UserIsAllowedByRole(httpContext) && this.UserIsAllowedByName(httpContext);
+            return this.UserIsAllowedByClaim(httpContext) &&
+                   this.UserIsAllowedByRole(httpContext) && 
+                   this.UserIsAllowedByName(httpContext);
         }
 
         /// <summary>
@@ -73,6 +82,17 @@ namespace Elmah.Mvc
         {
             return httpContext.Request.IsAuthenticated &&
                    (this.allowedRoles.Any(r => r == "*" || httpContext.User.IsInRole(r)));
+        }
+
+        /// <summary>
+        /// Check that current user is in allowed claims
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
+        private bool UserIsAllowedByClaim(System.Web.HttpContextBase httpContext)
+        {
+            return httpContext.Request.IsAuthenticated &&
+                   (this.allowedClaims.Any(c => c == "*" || ((ClaimsPrincipal)httpContext.User).HasClaim(x => x.Value.Equals(c, StringComparison.InvariantCultureIgnoreCase))));
         }
 
         /// <summary>
