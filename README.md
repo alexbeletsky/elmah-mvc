@@ -105,3 +105,8 @@ Recent changes
 * 11-Jan-2012 - minor style changes and readme correction
 * 29-Aug-2011 - nuget package created
 * 29-Aug-2011 - reimplemented controller to avoid usage of additional routing instructions
+
+Licence
+=======
+
+[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
