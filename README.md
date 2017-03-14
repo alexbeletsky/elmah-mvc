@@ -29,7 +29,7 @@ Easy. Install ELMAH by NuGet, in package console
 
 	Install-Package Elmah.MVC
 
-For further ELMAH configuration please check the [documentation](https://code.google.com/p/elmah/).
+For further ELMAH configuration please check the [documentation](http://elmah.github.io/).
 
 Should I use HandleErrorAttribute?
 ----------------------------------
@@ -76,6 +76,13 @@ You might change the `elmah.mvc.route` to a custom one, but still able to see EL
 **UPDATE**: You might also consider ignoring ``/elmah`` route explicitly as described [here](https://github.com/alexanderbeletsky/elmah.mvc/issues/26).
 
 **UPDATE 2**: [@chaoaretasty](https://github.com/chaoaretasty) has added an option, to allow ignoring default role. Set `elmah.mvc.IgnoreDefaultRoute` setting option to `true`.
+
+More about authentication
+-------------------------
+
+Both `allowedRoles` and `allowedUsers` accept a comma-separated list of values. When using Windows Authentication, users are required to have the "DOMAIN\user.name" prefix whereas roles will work with or without the domain prefix.
+
+Note that when authentication is used, users are required to satisfy **both** the `allowedRoles` and `allowedUsers` criteria. That means if you only want to control access by roles, `allowedUsers` must retain the default "\*", and vice versa. When both settings are populated with anything other than "\*", a user must be included in the `allowedUsers` list **and** be in one of the specified roles to gain access.
 
 Related articles and posts
 --------------------------
