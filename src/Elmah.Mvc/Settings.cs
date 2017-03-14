@@ -41,7 +41,15 @@ namespace Elmah.Mvc
             }
 	    }
 
-		public static string Route
+        public static string AllowedClaims
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["elmah.mvc.allowedClaims"] ?? "*";
+            }
+        }
+
+        public static string Route
 		{
 			get
 			{
