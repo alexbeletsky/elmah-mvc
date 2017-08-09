@@ -36,10 +36,10 @@ Should I use HandleErrorAttribute?
 
 If you tried to use ELMAH in ASP.NET MVC, you are probably implemented your own HandleErrorAttribute, as it's shown in this [example](http://stackoverflow.com/questions/766610/how-to-get-elmah-to-work-with-asp-net-mvc-handleerror-attribute). You no longer need to apply this custom code with Elmah.MVC. As soon you installed package, so can safely remove your HandleError attribute, since it's already included into package.
 
-Will exceptions being logged in "customError='On'" mode?
+Will exceptions be logged in "customError='On'" mode?
 --------------------------------------------------------
 
-Yes, even in you configured application to use custom error pages, the exception will be logged.
+Yes, even if you configured application to use custom error pages, the exception will be logged.
 
 How can I configure Elmah.MVC?
 ------------------------------
