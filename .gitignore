@@ -40,3 +40,4 @@ tests/*
 doc/*
 SolutionVersion.cs
 gems/lib/**/*
+/src/.vs/*
