@@ -29,7 +29,7 @@ Easy. Install ELMAH by NuGet, in package console
 
 	Install-Package Elmah.MVC
 
-For further ELMAH configuration please check the [documentation](https://code.google.com/p/elmah/).
+For further ELMAH configuration please check the [documentation](https://elmah.github.io/).
 
 Should I use HandleErrorAttribute?
 ----------------------------------
